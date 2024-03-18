@@ -1,0 +1,21 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "pwd1234!@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - 1433:1433
+
+  intelligentehousehub:
+    image: intelligentehousehub
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5081:5081  

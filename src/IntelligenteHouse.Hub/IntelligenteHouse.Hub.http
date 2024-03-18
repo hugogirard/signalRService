@@ -1,0 +1,6 @@
+@HostAddress = http://localhost:5081
+
+POST {{HostAddress}}/createdb/
+Accept: application/json
+
+###
